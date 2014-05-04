@@ -63,7 +63,6 @@ var TumblrGenerator = yeoman.generators.Base.extend({
       this.themeName = props.themeName;
       this.framework = props.framework;
 
-      this.log(chalk.red(this.framework));
 
       done();
     }.bind(this));
@@ -72,6 +71,17 @@ var TumblrGenerator = yeoman.generators.Base.extend({
   app: function () {
     this.mkdir('src');
     this.mkdir('src/templates');
+
+    this.copy(this.framework + '/post-answer.html',   'src/templates/post-answer.html');
+    this.copy(this.framework + '/post-audio.html',    'src/templates/post-audio.html');
+    this.copy(this.framework + '/post-chat.html',     'src/templates/post-chat.html');
+    this.copy(this.framework + '/post-link.html',     'src/templates/post-link.html');
+    this.copy(this.framework + '/post-panorama.html', 'src/templates/post-panorama.html');
+    this.copy(this.framework + '/post-photo.html',    'src/templates/post-photo.html');
+    this.copy(this.framework + '/post-photoset.html', 'src/templates/post-photoset.html');
+    this.copy(this.framework + '/post-quote.html',    'src/templates/post-quote.html');
+    this.copy(this.framework + '/post-text.html',     'src/templates/post-text.html');
+    this.copy(this.framework + '/post-video.html',    'src/templates/post-video.html');
 
     this.template('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
